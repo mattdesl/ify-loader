@@ -72,6 +72,9 @@ function loader (source) {
           .concat(bl(done))
 
         multipipe.apply(this, transforms)
+          .once('error', function (err) {
+            console.error(err.message)
+          })
       })
     })
   }
